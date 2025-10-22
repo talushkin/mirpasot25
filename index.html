@@ -125,28 +125,6 @@
 <body>
   <div class="hero" aria-hidden="false">
     <img src="834cc2e3-d059-4d76-9c6a-46edf082016c.jpg" alt="מרפסות נובמבר 2025">
-
-    <!-- birds overlay: simple SVG silhouettes animated with CSS. Inline vars add variety. -->
-    <div class="birds" aria-hidden="true">
-      <div class="bird" style="--delay:0s; --duration:13s; --top:8%;">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s4-6 10-6 10 6 10 6-4 6-10 6S2 12 2 12z"/></svg>
-      </div>
-      <div class="bird" style="--delay:1.6s; --duration:11s; --top:20%; --bird-fill: rgba(0,0,0,0.75);">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s4-6 10-6 10 6 10 6-4 6-10 6S2 12 2 12z"/></svg>
-      </div>
-      <div class="bird" style="--delay:3s; --duration:16s; --top:32%; --bird-fill: rgba(0,0,0,0.65); width:48px; height:30px;">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s4-6 10-6 10 6 10 6-4 6-10 6S2 12 2 12z"/></svg>
-      </div>
-      <div class="bird" style="--delay:4.2s; --duration:10s; --top:44%; --bird-fill: rgba(0,0,0,0.6); width:56px; height:36px;">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s4-6 10-6 10 6 10 6-4 6-10 6S2 12 2 12z"/></svg>
-      </div>
-      <div class="bird" style="--delay:5.6s; --duration:14s; --top:52%; --bird-fill: rgba(0,0,0,0.7); width:72px; height:44px;">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s4-6 10-6 10 6 10 6-4 6-10 6S2 12 2 12z"/></svg>
-      </div>
-      <div class="bird" style="--delay:2.4s; --duration:12s; --top:60%; --bird-fill: rgba(0,0,0,0.55); width:52px; height:32px;">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s4-6 10-6 10 6 10 6-4 6-10 6S2 12 2 12z"/></svg>
-      </div>
-    </div>
   </div>
   <br>
   <a
@@ -188,85 +166,4 @@
 👉 <a href="https://chat.whatsapp.com/JaCJvq7imfnBymzyqG20fT?mode=wwc" target="_blank">להצטרפות לקבוצת המרפסות</a>  
   </div>
 </body>
-<script>
-// Flying pelicans script
-(() => {
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced) return; // don't animate if user prefers reduced motion
-
-  const hero = document.querySelector('.hero');
-  const birdsLayer = document.querySelector('.birds');
-  if (!hero || !birdsLayer) return;
-
-  const maxPelicans = Math.max(3, Math.floor(window.innerWidth / 300));
-  const colors = ['#ffffff', '#000000']; // white and black variants
-
-  function createPelican(color) {
-    const el = document.createElement('div');
-    el.className = 'pelican';
-    const size = 36 + Math.round(Math.random() * 48); // 36-84 px
-    el.style.width = size + 'px';
-    el.style.height = Math.round(size * 0.7) + 'px';
-    // vertical position within hero
-    const topPct = 6 + Math.random() * 72; // 6%..78%
-    el.style.top = topPct + '%';
-
-    // silhouette pelican SVG — single path similar to provided attachment
-    const strokeAttr = (color === '#ffffff') ? ' stroke="rgba(0,0,0,0.12)" stroke-width="1"' : '';
-    el.innerHTML = `
-      <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
-        <path fill="${color}"${strokeAttr} d="M15 60c14-6 30-18 54-20 12-1 26 2 42 6 12 3 28 8 46 4 10-3 20-10 28-14 4-2 8-4 12-6 2-1 6-2 8-1 2 1 3 4 2 6-3 6-12 12-18 16-8 6-18 10-28 14-18 8-36 14-56 16-16 1-32 0-48-4-10-2-20-6-30-10-6-2-12-4-16-8-2-2-2-6 1-8z"/>
-      </svg>`;
-    return el;
-  }
-
-  function flyPelican(el, delay) {
-    const startX = -0.2 * window.innerWidth; // slightly off left
-    const endX = window.innerWidth + 0.2 * window.innerWidth; // off right
-    const duration = 9000 + Math.random() * 9000; // 9s-18s
-    const verticalDrift = (Math.random() - 0.5) * 120; // px
-
-    // use Web Animations API when available
-    const keyframes = [
-      { transform: `translate(${startX}px, 0px)`, opacity: 0, offset: 0 },
-      { transform: `translate(${startX + (endX - startX) * 0.25}px, ${verticalDrift * 0.25}px)`, opacity: 1, offset: 0.25 },
-      { transform: `translate(${startX + (endX - startX) * 0.6}px, ${verticalDrift * 0.05}px)`, opacity: 1, offset: 0.6 },
-      { transform: `translate(${endX}px, 0px)`, opacity: 0, offset: 1 }
-    ];
-
-    const anim = el.animate(keyframes, {
-      duration: duration,
-      delay: delay,
-      iterations: 1,
-      easing: 'linear'
-    });
-
-    anim.onfinish = () => {
-      el.remove();
-    };
-  }
-
-  // spawn initial flock
-  for (let i = 0; i < maxPelicans; i++) {
-    const color = colors[Math.floor(Math.random() * colors.length)];
-    const p = createPelican(color === '#ffffff' ? '#ffffff' : '#000000');
-    birdsLayer.appendChild(p);
-    flyPelican(p, Math.random() * 3000);
-  }
-
-  // continuously spawn occasional pelicans
-  const spawnInterval = setInterval(() => {
-    if (document.hidden) return; // avoid animating when page is hidden
-    const current = birdsLayer.querySelectorAll('.pelican').length;
-    if (current >= maxPelicans + 2) return;
-    const color = colors[Math.floor(Math.random() * colors.length)];
-    const p = createPelican(color === '#ffffff' ? '#ffffff' : '#000000');
-    birdsLayer.appendChild(p);
-    flyPelican(p, 100);
-  }, 2200 + Math.random() * 1800);
-
-  // cleanup on unload
-  window.addEventListener('unload', () => clearInterval(spawnInterval));
-})();
-</script>
 </html>
