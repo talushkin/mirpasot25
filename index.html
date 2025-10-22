@@ -89,6 +89,18 @@
     @media (prefers-reduced-motion: reduce) {
       .bird { animation: none; opacity: 0.9; }
     }
+    /* dynamic pelicans (spawned via JS) */
+    .pelican {
+      position: absolute;
+      left: 0;
+      pointer-events: none;
+      transform-origin: center;
+      z-index: 12;
+      will-change: transform, opacity;
+      mix-blend-mode: normal;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
+    }
+    .pelican svg { width: 100%; height: 100%; display:block }
     .text {
       padding: 1.5rem;
       font-size: 1.1rem;
