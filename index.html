@@ -1,186 +1,337 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <title>✨ מרפסות נובמבר 2025 ✨</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ מרפסות נובמבר 2025 ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <!-- ✅ Open Graph Meta -->
-  <meta property="og:title" content="✨ מרפסות נובמבר 2025 ✨" />
-  <meta property="og:description" content="פסטיבל חברתי-קהילתי בבתים, חצרות ומרפסות קריית טבעון – 20–22 בנובמבר 2025 🌟" />
-  <meta property="og:image" content="https://raw.githubusercontent.com/talushkin/mirpasot25/main/mirpasot25_og_1200x630.jpg" />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="he_IL" />
+        body {
+            font-family: 'Rubik', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
 
-  <!-- ✅ Twitter Card (optional) -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="✨ מרפסות נובמבר 2025 ✨">
-  <meta name="twitter:description" content="פסטיבל חברתי-קהילתי בבתים, חצרות ומרפסות קריית טבעון – 20–22 בנובמבר 2025 🌟">
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/talushkin/mirpasot25/main/mirpasot25_og_1200x630.jpg" />
+        h1, h2, h3 {
+            color: #6b46c1;
+            text-align: center;
+        }
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #fdfdfd;
-      margin: 0;
-      text-align: center;
-      direction: rtl;
-    }
-    /* hero image container (holds image + bird overlay) */
-    .hero {
-      position: relative;
-      display: inline-block;
-      margin-top: 20px;
-      max-width: 800px;
-      width: 100%;
-      vertical-align: top;
-    }
-    .hero img {
-      width: 100%;
-      display: block;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-    /* birds overlay */
-    .birds {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      overflow: visible;
-      z-index: 5;
-      --bird-fill: rgba(0,0,0,0.85);
-    }
-    .bird {
-      position: absolute;
-      left: 0;
-      width: 64px;
-      height: 40px;
-      transform-origin: center;
-      animation-name: fly;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-      will-change: transform, opacity;
-      opacity: 0;
-    }
-    .bird svg { width: 100%; height: 100%; display: block; fill: var(--bird-fill); }
+        /* Sparkles Animation */
+        .sparkles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.1;
+            font-size: 2rem;
+            animation: sparkle 3s infinite alternate;
+        }
 
-    /* different birds can override these variables inline for variety */
-    .bird { animation-duration: var(--duration, 14s); animation-delay: var(--delay, 0s); top: var(--top, 18%); }
+        .sparkles.bottom {
+            top: auto;
+            bottom: 0;
+            animation-delay: 1s;
+        }
 
-    @keyframes fly {
-      0% {
-        transform: translateX(-30vw) translateY(0) scale(0.85) rotate(-10deg);
-        opacity: 0;
-      }
-      8% { opacity: 1; }
-      50% {
-        transform: translateX(60vw) translateY(-8vh) scale(1) rotate(6deg);
-        opacity: 1;
-      }
-      92% { opacity: 1; }
-      100% {
-        transform: translateX(120vw) translateY(0) scale(0.9) rotate(10deg);
-        opacity: 0;
-      }
-    }
+        @keyframes sparkle {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.1; }
+            100% { transform: translateY(-20px) rotate(180deg); opacity: 0.3; }
+        }
 
-    /* Respect user preference for reduced motion */
-    @media (prefers-reduced-motion: reduce) {
-      .bird { animation: none; opacity: 0.9; }
-    }
-    /* dynamic pelicans (spawned via JS) */
-    .pelican {
-      position: absolute;
-      left: 0;
-      pointer-events: none;
-      transform-origin: center;
-      z-index: 12;
-      will-change: transform, opacity;
-      mix-blend-mode: normal;
-      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
-    }
-    .pelican svg { width: 100%; height: 100%; display:block }
-    .appsheet-iframe {
-      margin: 20px auto;
-      max-width: 800px;
-      width: 100%;
-      height: 600px;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-    .text {
-      padding: 1.5rem;
-      font-size: 1.1rem;
-      line-height: 1.8;
-      white-space: pre-line;
-    }
-          a.button {
-        margin-top: 24px;
-        padding: 30px 60px;
-        background-color: #0078d7;
-        color: white;
-        text-decoration: none;
-        font-size: 3.2rem;
-        border-radius: 20px;
-        transition: background-color 0.3s;
-      }
-      a.button:hover {
-        background-color: #005fa3;
-      }
-  </style>
+        /* Hero Section */
+        .hero {
+            position: relative;
+            text-align: center;
+            color: white;
+            background: #c0cbc5;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 1000px;
+            height: 100%;
+            min-height: 60vh;
+            background: url('https://raw.githubusercontent.com/talushkin/mirpasot25/main/834cc2e3-d059-4d76-9c6a-46edf082016c.jpg') top center / cover no-repeat;
+            z-index: 1;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 20px;
+            animation-delay: 0.4s;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-out 0.4s forwards;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: .5rem;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,.4);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            opacity: .95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ffd700;
+            color: #333;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .cta-button.secondary {
+            background: #6b46c1;
+            color: white;
+        }
+
+        /* Sections */
+        .section {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .highlight {
+            background: #fff3cd;
+            border: 2px dashed #ffc107;
+            border-radius: 10px;
+        }
+
+        .donate-card {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            background: #6b46c1;
+            color: white;
+            margin-top: 3rem;
+        }
+
+        /* Fade-in Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* RTL Support */
+        [dir="rtl"] {
+            text-align: right;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .grid-section {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
+            .hero h1 {
+                font-size: 4rem;
+            }
+            
+            .section {
+                padding: 4rem 2rem;
+            }
+        }
+
+        @media (max-width: 999px) {
+            .hero-image {
+                left: 0;
+                transform: none;
+                width: 100%;
+                max-width: none;
+                min-width: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 50vh;
+                background: #c0cbc5;
+            }
+
+            .hero-image {
+                background-size: contain;
+                background-position: top center;
+                background-repeat: no-repeat;
+                width: 100%;
+                max-width: none;
+                left: 0;
+                transform: none;
+                height: 100%;
+            }
+
+            .hero-content {
+                padding: 1rem;
+                margin-top: auto;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .hero {
+                min-height: 30vh;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 2rem 1rem;
+                min-height: 40vh;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .cta-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
+<script>
+    // מפעיל את האנימציה רק בפעם הראשונה
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector('.hero').classList.add('fade-in');
+    });
+</script>
 <body>
-  <div class="hero" aria-hidden="false">
-    <img src="834cc2e3-d059-4d76-9c6a-46edf082016c.jpg" alt="מרפסות נובמבר 2025">
-  </div>
-  <br>
-  <a
-      class="button"
-      href="https://www.appsheet.com/start/5bda36ea-9ea5-4a91-a74d-239386034dcf"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      עבור לתכנייה הדיגיטלית
-    </a><br>
-  <div class="text">
-✨ מרפסות נובמבר 2025 ✨  
-📅 20–22 בנובמבר  
-🪩 חמישי | שישי | שבת  
+ <header class="hero">
+    <div class="hero-image"></div>
+ </header>
 
-🎨 בתים מארחים – נשמח שתפתחו את הבית שלכם לאירוח מרפסת פתוחה!  
-👉 להרשמה: <a href="https://forms.gle/4JXoHy3cwd9gE2yQ6" target="_blank">טופס מארחים</a>  
+    <main>
+  <div class="hero-content">
+        <p class="subtitle">הפסטיבל החברתי-קהילתי שחוגג את רוח היצירה המקומית</p>
+        <a href="#program" class="cta-button">עבור לתכנייה הדיגיטלית</a>
+    </div>
+        <section id="dates" class="section">
+            <h2>📅 20–22 בנובמבר</h2>
+            <p style="text-align: center;">🪩 חמישי | שישי | שבת</p>
+        </section>
 
-🎭 מופעים ואירועים – רוצים להופיע או לקחת חלק בפעילויות?  
-מומלץ ביותר לארגן בית מארח עם יום ושעה ידועה מראש לקיצור תהליך השיבוץ!  
-👉 להרשמה: <a href="https://forms.gle/b7YzM2XwK4gZ4F436" target="_blank">טופס מופיעים</a>  
+        <section id="hosting" class="section grid-section">
+            <div class="card">
+                <h3>🎨 בתים מארחים</h3>
+                <p>נשמח שתפתחו את הבית שלכם לאירוח מרפסת פתוחה!</p>
+                <a href="https://forms.gle/placeholder-hosts" class="cta-button secondary" target="_blank">להרשמה: טופס מארחים</a>
+            </div>
+            <div class="card">
+                <h3>🎭 מופעים ואירועים</h3>
+                <p>רוצים להופיע או לקחת חלק בפעילויות? מומלץ לארגן בית מארח עם יום ושעה ידועה מראש!</p>
+                <a href="https://forms.gle/placeholder-performers" class="cta-button secondary" target="_blank">להרשמה: טופס מופיעים</a>
+            </div>
+        </section>
 
-📢 הטופס יינעל ביום שני – 10.11.25 בשעה 23:59  
-👉 מלאו את הפרטים בטופס כדי שנוכל להתחיל במלאכה!  
+        <section id="deadline" class="section highlight">
+            <h3>⏰ הטופס יינעל היום!</h3>
+            <p>יום שני – 10.11.25 בשעה 23:59</p>
+            <p>👉 מלאו את הפרטים בטופס כדי שנוכל להתחיל במלאכה!</p>
+        </section>
 
-✨ הפסטיבל החברתי-קהילתי שלנו חוגג את רוח היצירה המקומית.  
-ההשתתפות בכלל פעילויות הפסטיבל ללא עלות ועל אחריות המשתתפים בלבד.  
-הפסטיבל אינו מסחרי בשום צורה.  
+        <section id="about" class="section">
+            <p>ההשתתפות בכלל פעילויות הפסטיבל <strong>ללא עלות</strong> ועל <strong>אחריות המשתתפים בלבד</strong>. הפסטיבל אינו מסחרי בשום צורה.</p>
+            <p>כדי לאפשר את קיום קסם היצירה המשותפת, נשמח לתרומתכם שתסייע לנו בפרסום התוכנייה ובכיסוי ההוצאות 🫶 כל תרומה – קטנה כגדולה – מבורכת!</p>
+        </section>
 
-כדי לאפשר את קיום קסם היצירה המשותפת, נשמח לתרומתכם שתסייע לנו בפרסום התוכנייה ובכיסוי ההוצאות 🫶  
-כל תרומה – קטנה כגדולה – מבורכת ותעזור להפוך את החלום למציאות 🌟  
+        <section id="donate" class="section grid-section">
+            <div class="card donate-card">
+                <h3>🙏 לתרומות להדפסת והפקת התוכנייה</h3>
+                <a href="https://givebit.co.il/placeholder" class="cta-button" target="_blank" style="margin-bottom: 15px;">🔗 תרומה בפייבוקס</a>
+                <p style="margin-bottom: 15px;">📲 ביט: 054-6509303</p>
+                <a href="https://www.bitpay.co.il/app/share-info?i=222961917941_19l2tNP2" class="cta-button secondary" target="_blank">🔗 תרומה בביט</a>
+            </div>
+        </section>
+    </main>
 
-🙏 לתרומות להדפסת והפקת התוכנייה:  
-🔗 <a href="https://links.payboxapp.com/jS2G5FWBzXb" target="_blank">תרומה בפייבוקס</a>  
-📲 ביט: 054-6509303  
-🔗 <a href="https://www.bitpay.co.il/app/share-info?i=222961917941_19l2tNP2" target="_blank">תרומה בביט</a>  
+    <footer class="footer">
+        <p>💛 ניפגש במרפסות, בחצרות, ברחובות ובין הלבבות.</p>
+        <a href="https://chat.whatsapp.com/JaCJvq7imfnBymzyqG20fT?mode=wwc" class="cta-button" target="_blank">👉 להצטרפות לקבוצת המרפסות</a>
+    </footer>
 
-💛 ניפגש במרפסות, בחצרות, ברחובות ובין הלבבות.  
-👉 <a href="https://chat.whatsapp.com/JaCJvq7imfnBymzyqG20fT?mode=wwc" target="_blank">להצטרפות לקבוצת המרפסות</a>  
-  </div>
-  
-  <iframe 
-    class="appsheet-iframe"
-    src="https://www.appsheet.com/start/5bda36ea-9ea5-4a91-a74d-239386034dcf"
-    title="תכנייה דיגיטלית - מרפסות נובמבר 2025"
-    allowfullscreen
-  ></iframe>
-  
+    <div class="sparkles bottom">✨</div>
 </body>
 </html>
